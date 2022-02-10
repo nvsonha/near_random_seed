@@ -38,7 +38,6 @@ export const Contract = ({ near, update, account }) => {
         const contract = getContract(account);
         const outcome = await contract.play({}, GAS)
         flips.push(outcome < 128)
-        await contract.main()
         updateCredits()
     };
 
@@ -51,10 +50,8 @@ export const Contract = ({ near, update, account }) => {
         <br />
         <br />
         <button onClick={() => handlePlay()}>Flip</button>
-
         {
             flips.map((f, i) => f ? <p key={i}>Won</p> : <p key={i}>Lost</p>)
         }
     </>;
 };
-

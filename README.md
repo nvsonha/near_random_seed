@@ -43,6 +43,4 @@ Regarding Aurora Random Function, this PR is given: https://github.com/aurora-is
 Reference:
 - https://reactjs.org/docs/context.html
 - https://dmitripavlutin.com/use-react-memo-wisely/
-
-
-
+- https://github.com/near-apps/nearbp
