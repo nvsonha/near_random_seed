@@ -11,7 +11,15 @@ use serde::Serialize;
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 const ONE_NEAR: u128 = 1_000_000_000_000_000_000_000_000;
-const PROB: u8 = 128;
+const PROB50: u8 = 128;
+const PROB45: u8 = 115;
+const PROB40: u8 = 102;
+const PROB35: u8 = 89;
+const PROB30: u8 = 76;
+const PROB25: u8 = 64;
+const PROB20: u8 = 51;
+const PROB15: u8 = 38;
+const PROB10: u8 = 25;
 
 #[near_bindgen]
 #[derive(BorshDeserialize, BorshSerialize)]
@@ -55,7 +63,7 @@ impl SlotMachine {
         assert!(credits > 0, "no credits to play");
         credits = credits - ONE_NEAR;
         let rand: u8 = *env::random_seed().get(0).unwrap();
-        if rand < PROB {
+        if rand < PROB50 {
             credits = credits + 10 * ONE_NEAR;
         }
 

@@ -51,21 +51,21 @@ export const Contract = ({ near, update, account }) => {
         <br />
         <br />
         <ButtonGroup>
-            <Button onClick={() => handlePlay()}>Flip</Button>
-            <Button onClick={() => handlePlay()}>Flip</Button>
-            <Button onClick={() => handlePlay()}>Flip</Button>
+            <Button onClick={() => handlePlay()}>Flip50</Button>
+            <Button onClick={() => handlePlay()}>Flip45</Button>
+            <Button onClick={() => handlePlay()}>Flip40</Button>
         </ButtonGroup>
         <br />
         <ButtonGroup>
-            <Button onClick={() => handlePlay()}>Flip</Button>
-            <Button onClick={() => handlePlay()}>Flip</Button>
-            <Button onClick={() => handlePlay()}>Flip</Button>
+            <Button onClick={() => handlePlay()}>Flip35</Button>
+            <Button onClick={() => handlePlay()}>Flip30</Button>
+            <Button onClick={() => handlePlay()}>Flip25</Button>
         </ButtonGroup>
         <br />
         <ButtonGroup>
-            <Button onClick={() => handlePlay()}>Flip</Button>
-            <Button onClick={() => handlePlay()}>Flip</Button>
-            <Button onClick={() => handlePlay()}>Flip</Button>
+            <Button onClick={() => handlePlay()}>Flip20</Button>
+            <Button onClick={() => handlePlay()}>Flip15</Button>
+            <Button onClick={() => handlePlay()}>Flip10</Button>
         </ButtonGroup>
         <br />
         <br />
