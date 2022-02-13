@@ -19,6 +19,7 @@ export const Contract = ({ near, update, account }) => {
     const [credits, setCredits] = useState('');
     const [amount, setAmount] = useState('');
     const [flips, setFlips] = useState([]);
+    const [outcomes, setOutcomes] = useState([]);
 
     useEffect(() => {
         updateCredits();
@@ -38,6 +39,7 @@ export const Contract = ({ near, update, account }) => {
     const handlePlay = async () => {
         const contract = getContract(account);
         const outcome = await contract.play50({}, GAS)
+        outcomes.push(outcome)
         flips.push(outcome < 128)
         updateCredits()
     };
@@ -70,7 +72,11 @@ export const Contract = ({ near, update, account }) => {
         <br />
         <br />
         {
-            flips.map((f, i) => f ? <p key={i}>Won</p> : <p key={i}>Lost</p>)
+            outcomes.map((f, i) => {
+                return (
+                    <p key={i}>{f}{flips[i] ? <p key={i}>Won</p> : <p key={i}>Lost</p>}</p>
+                );
+            })
         }
     </>;
 };
