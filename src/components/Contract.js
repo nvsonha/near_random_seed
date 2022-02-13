@@ -37,7 +37,7 @@ export const Contract = ({ near, update, account }) => {
 
     const handlePlay = async () => {
         const contract = getContract(account);
-        const outcome = await contract.play({}, GAS)
+        const outcome = await contract.play50({}, GAS)
         flips.push(outcome < 128)
         updateCredits()
     };

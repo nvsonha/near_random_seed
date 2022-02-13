@@ -38,6 +38,7 @@ impl Default for SlotMachine {
 impl SlotMachine {
     #[init]
     pub fn new(owner_id: AccountId) -> Self {
+        assert!(!env::state_exists(), "The contract is already initialized");
         assert!(
             env::is_valid_account_id(owner_id.as_bytes()),
             "Invalid owner account"
@@ -57,7 +58,7 @@ impl SlotMachine {
         credits = credits + deposit;
         self.credits.insert(&account_id, &credits);
     }
-    pub fn play(&mut self) -> u8 {
+    pub fn play50(&mut self) -> u8 {
         let account_id = env::signer_account_id();
         let mut credits = self.credits.get(&account_id).unwrap_or(0);
         assert!(credits > 0, "no credits to play");
