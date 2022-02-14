@@ -9,14 +9,7 @@ This repo is a companion to this video:
 
 ## NEAR Config
 
-Regarding Aurora Random Function, this PR is given: https://github.com/aurora-is-near/aurora-engine/pull/368. Specifically, the function near_sdk::env::random_seed should be utilized.
-
-
-## Running Tests
-
----
-
-## Test Utils
+Regarding Aurora Random Function, this PR is given: https://github.com/aurora-is-near/aurora-engine/pull/368. Specifically, the function near_sdk::env::random_seed should be utilized.	
 
 ---
 
@@ -32,7 +25,18 @@ Regarding Aurora Random Function, this PR is given: https://github.com/aurora-is
 
 ---
 
-## Prefixing store and Provider
+## Game Description
+
+Win Percentage	Reward	    Bet	Game-owner Expected Value
+0.1	            50	        5	0.5
+0.15	        31.66666667		
+0.2	            22.5		
+0.25	        17		
+0.3	            13.33333333		
+0.35	        10.71428571		
+0.4	            8.75		
+0.45	        7.222222222		
+0.5	            6	
 
 ---
 

@@ -11,6 +11,7 @@ use serde::Serialize;
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 const ONE_NEAR: u128 = 1_000_000_000_000_000_000_000_000;
+const FIVE_NEAR: u128 = 5_000_000_000_000_000_000_000_000;
 const PROB50: u8 = 128;
 const PROB45: u8 = 115;
 const PROB40: u8 = 102;
@@ -61,11 +62,115 @@ impl SlotMachine {
     pub fn play50(&mut self) -> u8 {
         let account_id = env::signer_account_id();
         let mut credits = self.credits.get(&account_id).unwrap_or(0);
-        assert!(credits > 0, "no credits to play");
-        credits = credits - ONE_NEAR;
+        assert!(credits > 4, "no credits to play");
+        credits = credits - FIVE_NEAR;
         let rand: u8 = *env::random_seed().get(0).unwrap();
         if rand < PROB50 {
+            credits = credits + 6 * ONE_NEAR;
+        }
+
+        self.credits.insert(&account_id, &credits);
+        rand
+    }
+    pub fn play45(&mut self) -> u8 {
+        let account_id = env::signer_account_id();
+        let mut credits = self.credits.get(&account_id).unwrap_or(0);
+        assert!(credits > 4, "no credits to play");
+        credits = credits - FIVE_NEAR;
+        let rand: u8 = *env::random_seed().get(0).unwrap();
+        if rand < PROB45 {
+            credits = credits + 7 * ONE_NEAR;
+        }
+
+        self.credits.insert(&account_id, &credits);
+        rand
+    }
+    pub fn play40(&mut self) -> u8 {
+        let account_id = env::signer_account_id();
+        let mut credits = self.credits.get(&account_id).unwrap_or(0);
+        assert!(credits > 4, "no credits to play");
+        credits = credits - FIVE_NEAR;
+        let rand: u8 = *env::random_seed().get(0).unwrap();
+        if rand < PROB40 {
+            credits = credits + 8 * ONE_NEAR;
+        }
+
+        self.credits.insert(&account_id, &credits);
+        rand
+    }
+    pub fn play35(&mut self) -> u8 {
+        let account_id = env::signer_account_id();
+        let mut credits = self.credits.get(&account_id).unwrap_or(0);
+        assert!(credits > 4, "no credits to play");
+        credits = credits - FIVE_NEAR;
+        let rand: u8 = *env::random_seed().get(0).unwrap();
+        if rand < PROB35 {
             credits = credits + 10 * ONE_NEAR;
+        }
+
+        self.credits.insert(&account_id, &credits);
+        rand
+    }
+    pub fn play30(&mut self) -> u8 {
+        let account_id = env::signer_account_id();
+        let mut credits = self.credits.get(&account_id).unwrap_or(0);
+        assert!(credits > 4, "no credits to play");
+        credits = credits - FIVE_NEAR;
+        let rand: u8 = *env::random_seed().get(0).unwrap();
+        if rand < PROB30 {
+            credits = credits + 13 * ONE_NEAR;
+        }
+
+        self.credits.insert(&account_id, &credits);
+        rand
+    }
+    pub fn play25(&mut self) -> u8 {
+        let account_id = env::signer_account_id();
+        let mut credits = self.credits.get(&account_id).unwrap_or(0);
+        assert!(credits > 4, "no credits to play");
+        credits = credits - FIVE_NEAR;
+        let rand: u8 = *env::random_seed().get(0).unwrap();
+        if rand < PROB25 {
+            credits = credits + 17 * ONE_NEAR;
+        }
+
+        self.credits.insert(&account_id, &credits);
+        rand
+    }
+    pub fn play20(&mut self) -> u8 {
+        let account_id = env::signer_account_id();
+        let mut credits = self.credits.get(&account_id).unwrap_or(0);
+        assert!(credits > 4, "no credits to play");
+        credits = credits - FIVE_NEAR;
+        let rand: u8 = *env::random_seed().get(0).unwrap();
+        if rand < PROB20 {
+            credits = credits + 22 * ONE_NEAR;
+        }
+
+        self.credits.insert(&account_id, &credits);
+        rand
+    }
+    pub fn play15(&mut self) -> u8 {
+        let account_id = env::signer_account_id();
+        let mut credits = self.credits.get(&account_id).unwrap_or(0);
+        assert!(credits > 4, "no credits to play");
+        credits = credits - FIVE_NEAR;
+        let rand: u8 = *env::random_seed().get(0).unwrap();
+        if rand < PROB15 {
+            credits = credits + 31 * ONE_NEAR;
+        }
+
+        self.credits.insert(&account_id, &credits);
+        rand
+    }
+    pub fn play10(&mut self) -> u8 {
+        let account_id = env::signer_account_id();
+        let mut credits = self.credits.get(&account_id).unwrap_or(0);
+        assert!(credits > 4, "no credits to play");
+        credits = credits - FIVE_NEAR;
+        let rand: u8 = *env::random_seed().get(0).unwrap();
+        if rand < PROB10 {
+            credits = credits + 50 * ONE_NEAR;
         }
 
         self.credits.insert(&account_id, &credits);

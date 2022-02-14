@@ -36,11 +36,75 @@ export const Contract = ({ near, update, account }) => {
         updateCredits()
     };
 
-    const handlePlay = async () => {
+    const handlePlay50 = async () => {
         const contract = getContract(account);
         const outcome = await contract.play50({}, GAS)
         outcomes.push(outcome)
         flips.push(outcome < 128)
+        updateCredits()
+    };
+
+    const handlePlay45 = async () => {
+        const contract = getContract(account);
+        const outcome = await contract.play45({}, GAS)
+        outcomes.push(outcome)
+        flips.push(outcome < 115)
+        updateCredits()
+    };
+
+    const handlePlay40 = async () => {
+        const contract = getContract(account);
+        const outcome = await contract.play40({}, GAS)
+        outcomes.push(outcome)
+        flips.push(outcome < 102)
+        updateCredits()
+    };
+
+    const handlePlay35 = async () => {
+        const contract = getContract(account);
+        const outcome = await contract.play35({}, GAS)
+        outcomes.push(outcome)
+        flips.push(outcome < 89)
+        updateCredits()
+    };
+
+    const handlePlay30 = async () => {
+        const contract = getContract(account);
+        const outcome = await contract.play30({}, GAS)
+        outcomes.push(outcome)
+        flips.push(outcome < 76)
+        updateCredits()
+    };
+
+    const handlePlay25 = async () => {
+        const contract = getContract(account);
+        const outcome = await contract.play25({}, GAS)
+        outcomes.push(outcome)
+        flips.push(outcome < 64)
+        updateCredits()
+    };
+
+    const handlePlay20 = async () => {
+        const contract = getContract(account);
+        const outcome = await contract.play20({}, GAS)
+        outcomes.push(outcome)
+        flips.push(outcome < 51)
+        updateCredits()
+    };
+
+    const handlePlay15 = async () => {
+        const contract = getContract(account);
+        const outcome = await contract.play15({}, GAS)
+        outcomes.push(outcome)
+        flips.push(outcome < 38)
+        updateCredits()
+    };
+
+    const handlePlay10 = async () => {
+        const contract = getContract(account);
+        const outcome = await contract.play10({}, GAS)
+        outcomes.push(outcome)
+        flips.push(outcome < 25)
         updateCredits()
     };
 
@@ -53,21 +117,21 @@ export const Contract = ({ near, update, account }) => {
         <br />
         <br />
         <ButtonGroup>
-            <Button onClick={() => handlePlay()}>Flip50</Button>
-            <Button onClick={() => handlePlay()}>Flip45</Button>
-            <Button onClick={() => handlePlay()}>Flip40</Button>
+            <Button onClick={() => handlePlay50()}>Flip50</Button>
+            <Button onClick={() => handlePlay45()}>Flip45</Button>
+            <Button onClick={() => handlePlay40()}>Flip40</Button>
         </ButtonGroup>
         <br />
         <ButtonGroup>
-            <Button onClick={() => handlePlay()}>Flip35</Button>
-            <Button onClick={() => handlePlay()}>Flip30</Button>
-            <Button onClick={() => handlePlay()}>Flip25</Button>
+            <Button onClick={() => handlePlay35()}>Flip35</Button>
+            <Button onClick={() => handlePlay30()}>Flip30</Button>
+            <Button onClick={() => handlePlay25()}>Flip25</Button>
         </ButtonGroup>
         <br />
         <ButtonGroup>
-            <Button onClick={() => handlePlay()}>Flip20</Button>
-            <Button onClick={() => handlePlay()}>Flip15</Button>
-            <Button onClick={() => handlePlay()}>Flip10</Button>
+            <Button onClick={() => handlePlay20()}>Flip20</Button>
+            <Button onClick={() => handlePlay15()}>Flip15</Button>
+            <Button onClick={() => handlePlay10()}>Flip10</Button>
         </ButtonGroup>
         <br />
         <br />
