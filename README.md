@@ -16,7 +16,7 @@ Regarding Aurora Random Function, this PR is given: https://github.com/aurora-is
 
 ---
 
-# React 17
+## React 17
 
 - 'src/index.html', 'src/index.js' and 'src/components/*.js" handle front-end functionalities.
 
@@ -47,18 +47,20 @@ random_seed() return a value that is less than a randomly generated threshold 12
 (50% win percentage to 10% win percentage with an interval of 5%).
 
 - Based on the following expected-value formula with the given probabilities and a fixed bet cost,
-reward NEAR tokens are derived (in case of floats, ground values are used for game-owner's benefits).
-| Win Percentage        | Reward           | Bet Game-owner  | Expected Value  |\
-| --------------------- |:----------------:| ---------------:| ---------------:|\		     
-| 0.1	                | 50	           | 5	             | 0.5\
-| 0.15	                | 31.66666667		\
-| 0.2	                | 22.5		\
-| 0.25	                | 17		\
-| 0.3	                | 13.33333333		\
-| 0.35	                | 10.71428571		\
-| 0.4	                | 8.75		\
-| 0.45	                | 7.222222222		\
-| 0.5	                | 6	
+reward NEAR tokens are derived (in case of floats, ground values are used for game-owner's benefits).\
+Bet each round: 5.\
+Expected value: 0.5.\
+| Win Percentage        | Reward           |\
+| --------------------- |:----------------:|\		     
+| 0.1___________________| 50_______________|\ 
+| 0.15__________________| 31.66666667______|\
+| 0.2___________________| 22.5_____________|\ 
+| 0.25__________________| 17_______________|\ 
+| 0.3___________________| 13.33333333______|\ 
+| 0.35__________________| 10.71428571______|\ 
+| 0.4___________________| 8.75_____________|\ 
+| 0.45__________________| 7.222222222______|\ 
+| 0.5___________________| 6________________| 
 For example, if a player plays "Flip50", the player must bet 5 NEAR. If the player wins, a reward of 6
 NEAR is given and updated to the player's credits.
 
