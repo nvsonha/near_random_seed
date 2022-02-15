@@ -1,7 +1,7 @@
-# Demo - Aurora Random Function With Bomb Game Example
+# Demo - Aurora Random Function (NEAR Metabuild Hackathon)
 
 This repo is a companion to this video:
-[![Demo](https://i.ytimg.com/vi/WfE4b8QT3e0/maxresdefault.jpg)](https://youtu.be/WfE4b8QT3e0)
+[![Demo](http://i3.ytimg.com/vi/x7oSEda3obY/hqdefault.jpg)](https://youtu.be/WfE4b8QT3e0)
 
 ## Installation
 
@@ -16,9 +16,47 @@ Regarding Aurora Random Function, this PR is given: https://github.com/aurora-is
 
 ---
 
-## React 17
+## Game Description
 
-- 'src/index.html', 'src/index.js' and 'src/components/*.js" handle front-end functionalities.
+- It a web game, thus it is mobile-friendly and PC-friendly.
+
+- There are 9 buttons representing 9 play modes with 9 different probabilities.
+When a button is pressed, near_sdk::env::random_seed returns a value. A player wins if the value
+is less than a specific threshold designed for such a button.
+
+- Thresholds to verify winning results can be found at Lines 15 - 23 in 'contracts/src/lib.rs'
+(50% win percentage to 10% win percentage with an interval of 5%) as follows:
+1) Flip50: less than 128 (50 percentage of winning opportunity)
+2) Flip45: less than 115 (45 percentage of winning opportunity)
+3) Flip40: less than 102 (40 percentage of winning opportunity)
+4) Flip35: less than 89 (35 percentage of winning opportunity)
+5) Flip30: less than 76 (30 percentage of winning opportunity)
+6) Flip25: less than 64  (25 percentage of winning opportunity)
+7) Flip20: less than 51  (20 percentage of winning opportunity)
+8) Flip15: less than 38  (15 percentage of winning opportunity)
+9) Flip10: less than 25  (10 percentage of winning opportunity)
+
+- Based on an expected-value formula of 0.5 with the given probabilities and a fixed bet cost,
+reward NEAR tokens are derived as follows:
+Bet each round equals 5.\
+Expected value equals 0.5.\
+Specifically, every round costs 5 NEAR to play or to bet. If a player wins, a NEAR profit for a winning round
+is listed as follows:
+1) Flip50: 1 NEAR 
+2) Flip45: 2 NEAR 
+3) Flip40: 3 NEAR 
+4) Flip35: 5 NEAR 
+5) Flip30: 8 NEAR 
+6) Flip25: 12 NEAR
+7) Flip20: 17 NEAR
+8) Flip15: 26 NEAR
+9) Flip10: 45 NEAR
+
+- A withdraw function has not yet been implemented, because it depends on each game, i.e. limitation of
+game items and rewards that players can collect and exchange.
+
+- This game system is sustainable! It is able to re-designed for game rewards, which players collect
+and exchange collected game items for NEAR tokens, for example players collect game's 5 jewels and exchange the jewels with NEAR tokens at a jewel-combination machine.
 
 ---
 
@@ -36,37 +74,9 @@ sign-out button.
 
 ---
 
-## Game Description
+## React 17
 
-- It a web game, thus it is mobile-friendly and pc-friendly.
-
-- There are 9 buttons representing 9 play modes with different probabilities, e.g Flip50 yields "Won" if
-random_seed() returns a value that is less than a randomly generated threshold 128. 
-
-- The thresholds can be found at Lines 15 - 23 in 'contracts/src/lib.rs'
-(50% win percentage to 10% win percentage with an interval of 5%).
-
-- Based on an expected-value formula of 0.5 with the given probabilities and a fixed bet cost,
-reward NEAR tokens are derived as follows:\
-Bet each round equals 5.\
-Expected value equals 0.5.\
-Specifically, every round costs 5 NEAR to play or to bet. If a player wins, a NEAR profit for a winning round
-is listed as follows:\
-1) Flip50: 1 NEAR (50 percentage of winning opportunity)\
-2) Flip45: 2 NEAR (45 percentage of winning opportunity)\
-3) Flip40: 3 NEAR (40 percentage of winning opportunity)\
-4) Flip35: 5 NEAR (35 percentage of winning opportunity)\
-5) Flip30: 8 NEAR (30 percentage of winning opportunity)\
-6) Flip25: 12 NEAR (25 percentage of winning opportunity)\
-7) Flip20: 17 NEAR (20 percentage of winning opportunity)\
-8) Flip15: 26 NEAR (15 percentage of winning opportunity)\
-9) Flip10: 45 NEAR (10 percentage of winning opportunity)
-
-- This game system is sustainable and able to re-designed for game rewards, which players collect
-and trade game items for NEAR tokens.
-
-- The withdraw function has not yet been implemented, because it depends on each game, i.e. limitation of
-items and rewards that players can collect and trade.
+- 'src/index.html', 'src/index.js' and 'src/components/*.js" handle front-end functionalities.
 
 ---
 
