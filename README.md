@@ -48,16 +48,17 @@ random_seed() return a value that is less than a randomly generated threshold 12
 
 - Based on the following expected-value formula with the given probabilities and a fixed bet cost,
 reward NEAR tokens are derived (in case of floats, ground values are used for game-owner's benefits).
-Win Percentage	Reward	    Bet	Game-owner Expected Value
-0.1	            50	        5	0.5
-0.15	        31.66666667		
-0.2	            22.5		
-0.25	        17		
-0.3	            13.33333333		
-0.35	        10.71428571		
-0.4	            8.75		
-0.45	        7.222222222		
-0.5	            6	
+| Win Percentage        | Reward           | Bet Game-owner  | Expected Value  |
+| --------------------- |:----------------:| ---------------:| ---------------:|		     
+| 0.1	                | 50	           | 5	             | 0.5
+| 0.15	                | 31.66666667		
+| 0.2	                | 22.5		
+| 0.25	                | 17		
+| 0.3	                | 13.33333333		
+| 0.35	                | 10.71428571		
+| 0.4	                | 8.75		
+| 0.45	                | 7.222222222		
+| 0.5	                | 6	
 For example, if a player plays "Flip50", the player must bet 5 NEAR. If the player wins, a reward of 6
 NEAR is given and updated to the player's credits.
 
