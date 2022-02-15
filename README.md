@@ -1,7 +1,7 @@
 # Demo - Aurora Random Function (NEAR Metabuild Hackathon)
 
 This repo is a companion to this video:
-[![Demo](http://i3.ytimg.com/vi/x7oSEda3obY/hqdefault.jpg)](https://youtu.be/WfE4b8QT3e0)
+[![Demo](http://i3.ytimg.com/vi/x7oSEda3obY/hqdefault.jpg)](https://youtu.be/x7oSEda3obY)
 
 ## Installation
 
