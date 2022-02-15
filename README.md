@@ -1,7 +1,7 @@
 # Demo - Aurora Random Function With Bomb Game Example
 
 This repo is a companion to this video:
-[![Demo](https://previews.123rf.com/images/sarahdesign/sarahdesign1403/sarahdesign140301122/26700150-demo-icon.jpg)](https://mytu.be)
+[![Demo](https://i.ytimg.com/vi/WfE4b8QT3e0/maxresdefault.jpg)](https://youtu.be/WfE4b8QT3e0)
 
 ## Installation
 
@@ -41,28 +41,26 @@ sign-out button.
 - It a web game, thus it is mobile-friendly and pc-friendly.
 
 - There are 9 buttons representing 9 play modes with different probabilities, e.g Flip50 yields "Won" if
-random_seed() return a value that is less than a randomly generated threshold 128. 
+random_seed() returns a value that is less than a randomly generated threshold 128. 
 
 - The thresholds can be found at Lines 15 - 23 in 'contracts/src/lib.rs'
 (50% win percentage to 10% win percentage with an interval of 5%).
 
-- Based on the following expected-value formula with the given probabilities and a fixed bet cost,
-reward NEAR tokens are derived (in case of floats, ground values are used for game-owner's benefits).\
-Bet each round: 5.\
-Expected value: 0.5.\
-| Win Percentage        | Reward           |\
-| --------------------- |:----------------:|\		     
-| 0.1___________________| 50_______________|\ 
-| 0.15__________________| 31.66666667______|\
-| 0.2___________________| 22.5_____________|\ 
-| 0.25__________________| 17_______________|\ 
-| 0.3___________________| 13.33333333______|\ 
-| 0.35__________________| 10.71428571______|\ 
-| 0.4___________________| 8.75_____________|\ 
-| 0.45__________________| 7.222222222______|\ 
-| 0.5___________________| 6________________| 
-For example, if a player plays "Flip50", the player must bet 5 NEAR. If the player wins, a reward of 6
-NEAR is given and updated to the player's credits.
+- Based on an expected-value formula of 0.5 with the given probabilities and a fixed bet cost,
+reward NEAR tokens are derived as follows:\
+Bet each round equals 5.\
+Expected value equals 0.5.\
+Specifically, every round costs 5 NEAR to play or to bet. If a player wins, a NEAR profit for a winning round
+is listed as follows:\
+1) Flip50: 1 NEAR (50 percentage of winning opportunity)\
+2) Flip45: 2 NEAR (45 percentage of winning opportunity)\
+3) Flip40: 3 NEAR (40 percentage of winning opportunity)\
+4) Flip35: 5 NEAR (35 percentage of winning opportunity)\
+5) Flip30: 8 NEAR (30 percentage of winning opportunity)\
+6) Flip25: 12 NEAR (25 percentage of winning opportunity)\
+7) Flip20: 17 NEAR (20 percentage of winning opportunity)\
+8) Flip15: 26 NEAR (15 percentage of winning opportunity)\
+9) Flip10: 45 NEAR (10 percentage of winning opportunity)
 
 - This game system is sustainable and able to re-designed for game rewards, which players collect
 and trade game items for NEAR tokens.
