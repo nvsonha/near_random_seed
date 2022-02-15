@@ -5,6 +5,9 @@ This repo is a companion to this video:
 
 ## Installation
 
+- Follow NEAR Metabuild Hackathon guide to setup development environment: https://docs.near.org/docs/develop/basics/hackathon-startup-guide.
+- Clone this repository and install dependencies by calling 'yarn'.
+
 ---
 
 ## NEAR Config
@@ -13,20 +16,38 @@ Regarding Aurora Random Function, this PR is given: https://github.com/aurora-is
 
 ---
 
-# React 17, Parcel with useContext and useReducer
+# React 17
+
+- 'src/index.html', 'src/index.js' and 'src/components/*.js" handle front-end functionalities.
 
 ---
 
-## Getting Started: State Store & useContext
+## Getting Started
 
----
-
-## Dispatched Functions with context (update, getState, dispatch)
+- All back-end functionalities are implemented in Rust, which can be found in 'contracts/src/lib.rs'.
+- Sign-in and sign-out NEAR accounts are handled with near-sdk 2.0.1,
+which can be found in 'contracts/Cargo.toml'.
+- Start the web game by calling 'yarn start'.
+- Testnet account should be signed-in.
+- Players needs to buy NEAR to deposit credits for betting. Players cannot do anything before depositing at least 5 NEAR to the game, because it costs 5 NEAR by each play round.
+- Players are motivated to keep depositing and playing, thus the game is designed without any stop, except
+sign-out button.
+- After signing-out and signing-in again, the game credits are maintained.
 
 ---
 
 ## Game Description
 
+- It a web game, thus it is mobile-friendly and pc-friendly.
+
+- There are 9 buttons representing 9 play modes with different probabilities, e.g Flip50 yields "Won" if
+random_seed() return a value that is less than a randomly generated threshold 128. 
+
+- The thresholds can be found at Lines 15 - 23 in 'contracts/src/lib.rs'
+(50% win percentage to 10% win percentage with an interval of 5%).
+
+- Based on the following expected-value formula with the given probabilities and a fixed bet cost,
+reward NEAR tokens are derived (in case of floats, ground values are used for game-owner's benefits).
 Win Percentage	Reward	    Bet	Game-owner Expected Value
 0.1	            50	        5	0.5
 0.15	        31.66666667		
@@ -37,10 +58,21 @@ Win Percentage	Reward	    Bet	Game-owner Expected Value
 0.4	            8.75		
 0.45	        7.222222222		
 0.5	            6	
+For example, if a player plays "Flip50", the player must bet 5 NEAR. If the player wins, a reward of 6
+NEAR is given and updated to the player's credits.
+
+- This game system is sustainable and able to re-designed for game rewards, which players collect
+and trade game items for NEAR tokens.
+
+- The withdraw function has not yet been implemented, because it depends on each game, i.e. limitation of
+items and rewards that players can collect and trade.
 
 ---
 
-## Performance and memo
+## For Development
+
+- To update back-end Rust functions, wasm binary file should be re-built.
+- Contract should be re-deployed with near-cli: https://www.near-sdk.io/upgrading/prototyping.
 
 ---
 
